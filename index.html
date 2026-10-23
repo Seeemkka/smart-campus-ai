@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Вход · Smart Campus AI</title><link rel="stylesheet" href="assets/css/style.css"><link rel="icon" href="assets/img/logo.svg" type="image/svg+xml"></head>
+<body data-page="login">
+<div class="login"><form class="card" id="loginForm"><img src="assets/img/logo.svg" alt="logo"><h1>Smart Campus AI</h1>
+<input name="name" placeholder="Имя пользователя" required><input type="password" placeholder="Пароль (учебный, любой)" required>
+<select name="role"><option>Administrator</option><option>Engineer</option><option>Operator</option></select>
+<button>Войти</button><small>Учебная имитация входа: это не настоящая защита.</small></form></div>
+<script src="assets/js/data.js"></script><script src="assets/js/storage.js"></script><script src="assets/js/ai.js"></script><script src="assets/js/layout.js"></script>
+<script>
+if(getUser())location.href="dashboard.html";
+document.getElementById("loginForm").onsubmit=e=>{e.preventDefault();const f=e.target;saveData("sc_user",{name:f.name.value.trim(),role:f.role.value});location.href="dashboard.html";};
+</script></body></html>
